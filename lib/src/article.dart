@@ -17,15 +17,15 @@ class Article {
 
 final articles = [
   new Article(
-      text: "First",
-      domain: "",
+      text: "What Federal Workers can do",
+      domain: "https://news.google.com/articles/CAIiECqJUHmFWaXuG_-v9mMmrkcqGQgEKhAIACoHCAow2Nb3CjDivdcCML3vngY?hl=en-US&gl=US&ceid=US%3Aen",
       by: "",
       age: "3 hours",
       score: 177,
       commentsCount: 22),
   new Article(
       text: "Second",
-      domain: "",
+      domain: "https://www.youtube.com/watch?v=1oVetpi1bVA",
       by: "",
       age: "5 hours",
       score: 177,
