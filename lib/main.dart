@@ -43,17 +43,29 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget _buildItem(Article e) {
     return new Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: ListTile(
-          title: Text(e.text, style: new TextStyle(fontSize: 24.0)),
-          subtitle: Text("${e.commentsCount} comments"),
-          onTap: () async {
-            final fakeUrl = "${e.domain}";
-            if(await canLaunch(fakeUrl)){
-              launch(fakeUrl);
-            }
-          },
-        ),
+      key: Key(e.text),
+      padding: const EdgeInsets.all(16.0),
+      child: ExpansionTile(
+        title: Text(e.text, style: new TextStyle(fontSize: 24.0)),
+        children: <Widget>[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              Text("${e.commentsCount} comments"),
+              IconButton(
+                icon: Icon(Icons.launch),
+                color: Colors.green,
+                onPressed: () async {
+                  final url= "${e.domain}";
+                  if(await canLaunch(url)){
+                    launch(url);
+                  }
+                }
+              ),
+            ],
+          )
+        ],
+      ),
     );
   }
 }
